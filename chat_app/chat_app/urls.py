@@ -25,5 +25,6 @@ urlpatterns = [
     path('api/v1/auth/', include('rest_framework.urls')),
     path('api/v1/users/', UserListView.as_view()),
     path('api/v1/chats/', ChatListView.as_view()),
+    path('api/v1/messages/', MessageListView.as_view()),
 
 ]
