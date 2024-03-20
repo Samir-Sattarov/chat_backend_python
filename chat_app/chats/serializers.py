@@ -5,7 +5,7 @@ from users.serializers import UserSerializer
 
 
 class ChatSerializer(serializers.ModelSerializer):
-    users = UserSerializer
+    users = UserSerializer(many=True)
 
     class Meta:
         model = ChatModel
