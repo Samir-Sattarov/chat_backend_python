@@ -11,7 +11,7 @@ class ChatModel(models.Model):
     users = models.ManyToManyField(UserModel, default=list)
     last_message = models.CharField(default="", max_length=255)
     created_at = models.DateTimeField(auto_created=True, auto_now=True)
-    updated_at = models.DateTimeField(auto_created=True, auto_now=True)
+    last_message_at = models.DateTimeField(auto_created=True, auto_now=True)
 
 
 class MessageModel(models.Model):

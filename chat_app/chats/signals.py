@@ -11,5 +11,5 @@ def update_last_message_in_chat(sender, instance, created, **kwargs):
         chat = instance.roomId
         message = instance.message
         chat.last_message = message
-        chat.updated_at = timezone.now()
+        chat.last_message_at = timezone.now()
         chat.save()

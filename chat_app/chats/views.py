@@ -15,6 +15,11 @@ class ChatListView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
 
+class ChatView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ChatModel.objects.all()
+    serializer_class = ChatSerializer
+    permission_classes = [IsAuthenticated]
+
 
 class MessageListView(generics.ListCreateAPIView):
     serializer_class = MessageSerializer
