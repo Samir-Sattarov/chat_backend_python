@@ -1,5 +1,6 @@
-from django.shortcuts import render
 from rest_framework import generics
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 from users.models import UserModel
 from users.serializers import UserSerializer
@@ -17,3 +18,13 @@ class UserListView(generics.ListCreateAPIView):
 class UserCreateView(generics.CreateAPIView):
     queryset = UserModel.objects.all()
     serializer_class = UserSerializer
+
+
+class GetCurrentUserView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    @staticmethod
+    def get(request):
+        user = request.user
+        serializer = UserSerializer(user)
+        return Response(dict(data=serializer.data))
