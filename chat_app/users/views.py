@@ -12,3 +12,8 @@ class UserListView(generics.ListCreateAPIView):
     queryset = UserModel.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
+
+
+class UserCreateView(generics.CreateAPIView):
+    queryset = UserModel.objects.all()
+    serializer_class = UserSerializer

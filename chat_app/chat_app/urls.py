@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/v1/chats/<int:pk>/', ChatView.as_view()),
     path('api/v1/messages/', MessageListView.as_view()),
     path('api/v1/login/', TokenObtainPairView.as_view()),
+    path('api/v1/register/', UserCreateView.as_view()),
 
 
 ]
