@@ -3,7 +3,7 @@ from django.db import models
 from users.models import UserModel
 
 
-# Create your models here.
+# Create your models here.qq
 
 
 class ChatModel(models.Model):
