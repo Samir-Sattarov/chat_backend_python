@@ -2,6 +2,7 @@ from django.utils import timezone
 
 from rest_framework import generics
 from rest_framework.response import Response
+from rest_framework.permissions import *
 
 from chats.serializers import *
 from chats.models import *
@@ -11,10 +12,13 @@ from chats.models import *
 class ChatListView(generics.ListCreateAPIView):
     queryset = ChatModel.objects.all()
     serializer_class = ChatSerializer
+    permission_classes = [IsAuthenticated]
+
 
 
 class MessageListView(generics.ListCreateAPIView):
     serializer_class = MessageSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         room_id = self.request.query_params.get('roomId')
